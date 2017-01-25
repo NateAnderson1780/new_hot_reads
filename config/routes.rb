@@ -3,4 +3,10 @@ Rails.application.routes.draw do
   root "hot_reads#index"
   
   resources :hot_reads, only: [:create, :index]
+  
+  namespace :api do
+    namespace :v1 do
+      resources :hot_reads, only: [:index]
+    end
+  end
 end
